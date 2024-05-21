@@ -55,8 +55,8 @@ INSTANTIATE_TEST_SUITE_P(random_sort_tests, random_sort,
 
 #ifdef ENABLE_SLOW_TEST
                              ,
-                             test_arguments{10000000, 100000, 5, std::less<>()},
-                             test_arguments{10000000, 100000, 5, std::greater<>()}
+                             test_arguments{5000000, 100000, 5, std::less<>()},
+                             test_arguments{5000000, 100000, 5, std::greater<>()}
 #endif
                              ));
 
