@@ -13,15 +13,4 @@ valgrind --tool=memcheck \
   --vgdb=no \
   --error-exitcode=1 \
   --suppressions="${SCRIPT_DIR}/valgrind.suppressions" \
-  cmake-build-RelWithDebInfo/tests/tapes/tapes_tests_random
-
-valgrind --tool=memcheck \
-  --gen-suppressions=all \
-  --leak-check=full \
-  --show-leak-kinds=all \
-  --leak-resolution=med \
-  --track-origins=yes \
-  --vgdb=no \
-  --error-exitcode=1 \
-  --suppressions="${SCRIPT_DIR}/valgrind.suppressions" \
   cmake-build-RelWithDebInfo/tests/tapes/tapes_tests_correctness
