@@ -31,7 +31,7 @@ temp_file::temp_file(const std::string& prefix) {
   }
 
   std::ofstream file(_filepath);
-  if(!file.is_open()) {
+  if (!file.is_open()) {
     throw tape_exception("Failed to create temp file: " + _filepath.string());
   }
 }

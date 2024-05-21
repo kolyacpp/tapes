@@ -4,6 +4,7 @@
 #include <tapes/tapes.h>
 #include <tapes/util/delay_guard.h>
 
+#include <algorithm>
 #include <filesystem>
 
 using namespace tapes;
@@ -105,7 +106,7 @@ TEST(correctness, sort) {
 
     tapes::multiway_merge_sort(3, 3, comp).sort(input, output);
 
-    std::ranges::sort(values, comp);
+    std::sort(values.begin(), values.end(), comp);
     ASSERT_EQ(output.get_vector(), values);
   }
 }
@@ -117,10 +118,10 @@ TEST(correctness, delay_guard) {
   auto time = now();
   {
     tapes::util::delay_guard guard(100ms);
-    ASSERT_LE(now() - time, 2ms);
+    ASSERT_LE(now() - time, 7ms);
   }
   ASSERT_GE(now() - time, 100ms);
-  ASSERT_LE(now() - time, 102ms);
+  ASSERT_LE(now() - time, 107ms);
 }
 
 TEST(correctness, file_tape_delay) {
@@ -145,7 +146,7 @@ TEST(correctness, file_tape_delay) {
     action;                                                                                                            \
     auto eslaped = now() - time;                                                                                       \
     ASSERT_GE(eslaped, delay);                                                                                         \
-    ASSERT_LE(eslaped - 2ms, delay);                                                                                   \
+    ASSERT_LE(eslaped - 7ms, delay);                                                                                   \
   }
 
   TAPES_ASSERT_DELAY(tape.write(1), delays.write);

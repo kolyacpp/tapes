@@ -1,6 +1,6 @@
 #include "gen_config.h"
 
-#include <tapes/tape.h>
+#include <tapes/itape.h>
 
 #include <fstream>
 

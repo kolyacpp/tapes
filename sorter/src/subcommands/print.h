@@ -2,7 +2,7 @@
 
 #include "subcommand.h"
 
-#include <tapes/tape.h>
+#include <tapes/itape.h>
 
 #include <string>
 

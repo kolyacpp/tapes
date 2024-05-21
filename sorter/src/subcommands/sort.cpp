@@ -50,11 +50,11 @@ sort_subcommand::sort_subcommand(CLI::App& app)
 void sort_subcommand::run() {
   using namespace tapes;
 
-  if(_temp_diredtory != "system-default") {
+  if (_temp_diredtory != "system-default") {
     fs::create_directories(_temp_diredtory);
-    tapes::temp_file::set_temp_directory(_temp_diredtory);  
+    tapes::temp_file::set_temp_directory(_temp_diredtory);
   }
-  
+
   file_tape::delays delays = {.write = std::chrono::milliseconds(_delays.write),
                               .read = std::chrono::milliseconds(_delays.read),
                               .move = std::chrono::milliseconds(_delays.move),

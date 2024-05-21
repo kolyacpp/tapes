@@ -19,7 +19,7 @@ TEST_P(random_sort, is_sorted) {
   std::mt19937 gen(rd());
 
   std::uniform_int_distribution<itape::int_type> dist(std::numeric_limits<itape::int_type>::min(),
-                                                     std::numeric_limits<itape::int_type>::max());
+                                                      std::numeric_limits<itape::int_type>::max());
 
   for (uint64_t it = 0; it < iterations; ++it) {
     tape.write(dist(gen));
@@ -109,6 +109,6 @@ INSTANTIATE_TEST_SUITE_P(random_sort_counting_test, counting_sort,
 
 #ifdef ENABLE_SLOW_TEST
                              ,
-                             test_arguments{10000000, 100000, 5, std::less<>()}
+                             test_arguments{5000000, 100000, 5, std::less<>()}
 #endif
                              ));

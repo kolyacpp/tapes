@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tape.h"
+#include "itape.h"
 
 #include <tapes/file_tape.h>
 #include <tapes/temp_file.h>
@@ -18,7 +18,7 @@ template <typename Comp = std::less<>>
 class multiway_merge_sort {
 public:
   multiway_merge_sort(size_t buffer_size, size_t tape_count, Comp comp = {}) noexcept(
-      std::is_nothrow_default_constructible_v<Comp> && std::is_nothrow_move_constructible_v<Comp>)
+      std::is_nothrow_default_constructible_v<Comp>&& std::is_nothrow_move_constructible_v<Comp>)
       : _comp(std::move(comp)),
         _tape_count(tape_count),
         _buffer_size(buffer_size) {

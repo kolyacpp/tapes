@@ -14,8 +14,8 @@ void create_subcommand::run() {
   tape.clear();
 
   int64_t value;
-  while(std::cin >> value) {
-    if(value < 0) {
+  while (std::cin >> value) {
+    if (value < 0) {
       break;
     }
     tape.write(value);
